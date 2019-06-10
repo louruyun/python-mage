@@ -210,14 +210,17 @@ while True:
 #求100内的所有素数
 '''
 n = 100
-for i in range(1,n+1):
-    for j in range(2 ,i):
+for i in range(3,n+1,2):
+    if i > 10 and i % 5 ==0:
+        continue
+    for j in range(3 ,int(i**0.5)+1,2):
         if i % j == 0:
             # print(i , 'is not a prime number')
             break
     else:
+        count *= 1
         print(i , 'is a prime mumber')
-
+print(count)
 '''
 
 #正反renge打印一个数字
@@ -307,4 +310,53 @@ for  i  in range(-e,e+1):
     else:
         print(char * a)
 '''
+
+#比较算法时间对比
+'''
+import  datetime
+
+n = 100000
+delta = [0,0]
+count = [0,1]
+
+start = datetime.datetime.now()
+#代码
+for i in range(2,n):
+    for j in range(2 ,int(i**0.5)+1):
+        if i % j == 0:
+            # print(i , 'is not a prime number')
+            break
+    else:
+        count[0] += 1
+        # print(i , 'is a prime mumber')
+delta[0] = (datetime.datetime.now() - start).total_seconds()
+
+
+start = datetime.datetime.now()
+#代码
+for i in range(3,n,2):
+    if i > 10 and i % 5 == 0:
+        continue
+    for j in range(3 ,int(i**0.5)+1,2):
+        if i % j == 0:
+            # print(i , 'is not a prime number')
+            break
+    else:
+        count[1] += 1
+        # print(i , 'is a prime mumber')
+delta[1] = (datetime.datetime.now() - start).total_seconds()
+
+print(count)
+print(delta)
+print(delta[0] - delta[1] )
+
+'''
+
+
+
+
+
+
+
+
 
