@@ -53,7 +53,7 @@ print(delta[0] - delta[1] )
 
 '''
 
-#random随机数整数,前后都包
+#random列表随机数整数,前后都包
 '''
 import random
 # ss = random.randint(0,10)
